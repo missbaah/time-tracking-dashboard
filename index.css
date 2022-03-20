@@ -1,5 +1,18 @@
 body{
     font-family: 'Rubik', sans-serif;
     /* height: 100vh; */
-    
+    background-color: hsl(226, 43%, 10%);
+    color: white;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    gap: 20px;
+
+}
+
+.item1{
+    grid-row: 1/ span 2;
 }
