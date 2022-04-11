@@ -103,13 +103,13 @@ let data = [
     }
   ]
 
-const nodelist =  document.querySelectorAll('.periodical .periodical-option')
-const periodical = Array.apply(null, nodelist);
+const button =  document.querySelectorAll('.periodical-option')
+// const periodical = Array.apply(null, nodelist);
 
 
-const activateClickedLink = (periodical) => {
-    periodical.forEach(periodical.classList.remove('active'))
-    periodical.classList.add('active')
+const activateClickedLink = (button) => {
+    button.forEach(button.classList.remove('active')) 
+    button.classList.add('active')
 }
 
 const renderCards = (clickedOption) => {
@@ -133,10 +133,10 @@ const renderCards = (clickedOption) => {
     })
 }
  
-periodical.forEach ( periodical => {
-    periodical.addEventListener( 'click', () => {
-        activateClickedLink(periodical)
-        const clickedOption = periodical.dataset.option 
+button.forEach(button => {
+    button.addEventListener( 'click', () => {
+        activateClickedLink(button)
+        const clickedOption = button.dataset.option 
         renderCards(clickedOption)
     })
 })
