@@ -103,7 +103,7 @@ let data = [
     }
   ]
 
-const nodelist =  document.querySelectorAll('periodical-option')
+const nodelist =  document.querySelectorAll('.periodical .periodical-option')
 const periodical = Array.apply(null, nodelist);
 
 
@@ -129,7 +129,7 @@ const renderCards = (clickedOption) => {
         const activityClass = name.toLowerCase().replace(' ', '-')
         const timeframeData = activity.timeframes[clickedOption]
         const previousTimeframe = calcTimeframe(clickedOption)
-        console.log(previousTimeframe)
+        
     })
 }
  
