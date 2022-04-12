@@ -73,12 +73,12 @@ a:active{
     color: white;
 }
 
-.item1, .item2, .item3, .item4, .item5, .item6, .item7{
+.item1, .item {
     box-sizing: border-box;
     border-radius: 20px;
 }
 
-.item2, .item3, .item4, .item5, .item6, .item7{
+.item {
     position: relative;
     overflow: hidden;
     /* background-color: hsl(235, 46%, 20%); */
@@ -171,7 +171,7 @@ background-color: hsl(15, 100%, 70%);
         height: 130px;
         grid-area: 1/1/2/2;
     }
-    .item2, .item3, .item4, .item5, .item6, .item7{
+    .item {
         height: 160px;
         width: 100%;
         /* margin: 20px; */

@@ -103,17 +103,24 @@ let data = [
     }
   ]
 
-const button =  document.querySelectorAll('.periodical-option')
+const buttons =  document.querySelectorAll('.periodical-option')
 // const periodical = Array.apply(null, nodelist);
 
 
 const activateClickedLink = (button) => {
-    button.forEach(button.classList.remove('active')) 
+    buttons.forEach(b => b.classList.remove('active')) 
     button.classList.add('active')
 }
 
+const clearItemboxes = () => {
+  const itemboxes = document.querySelectorAll('.item')
+  itemboxes.forEach( i => i.remove())
+}
+
 const renderCards = (clickedOption) => {
-    
+    clearItemboxes();
+const gridbox = document.querySelector('div.grid-container')
+
     const calcTimeframe = (option) => {
         if (option === 'daily'){
             return 'Yesterday'
@@ -129,14 +136,34 @@ const renderCards = (clickedOption) => {
         const activityClass = name.toLowerCase().replace(' ', '-')
         const timeframeData = activity.timeframes[clickedOption]
         const previousTimeframe = calcTimeframe(clickedOption)
-        
-    })
-}
+       const section = document.createElement('section')
+       section.classList.add('item', activityClass)
+       const stringToInject = `
+       <div class="item">
+      <div class="layover1">
+        <img class="icons" src="images/icon-${activityClass}.svg" alt="icon-work">
+      </div>
+      <div class="card">
+        <div class="card-title">
+         ${name}
+        </div>
+        <img class="ellipsis" src="images/icon-ellipsis.svg" alt="icon-ellipsis"> 
+        <br> 
+        <div class="hours dailyhours">${timeframeData.current}hrs</div>  
+        <div class="previous yesterday">${[previousTimeframe]} - ${timeframeData.previous}</div>  
+      </div>
+    </div>
+       `
+    section.innerHTML = stringToInject
+    gridbox.append(section)
+    });
+};
  
-button.forEach(button => {
+buttons.forEach(button => {
     button.addEventListener( 'click', () => {
         activateClickedLink(button)
         const clickedOption = button.dataset.option 
         renderCards(clickedOption)
     })
 })
+
